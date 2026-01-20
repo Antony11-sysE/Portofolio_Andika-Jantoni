@@ -74,14 +74,19 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
 .project-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1rem; line-height: 1.1; }
 .project-text p { color: var(--muted); max-width: 400px; line-height: 1.6; }
 
+/* --- PROFILE TEXT ONLY --- */
+.profile-container { max-width: 900px; margin: 0 auto; padding: 0 var(--space-md) var(--space-lg); }
+.profile-bio h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 2rem; line-height: 1.1; }
+.profile-bio p { font-size: 1.2rem; line-height: 1.8; color: var(--muted); margin-bottom: 2rem; max-width: 700px; }
+
 /* --- THE IMAGE "STAND" LOOK VIA CSS --- */
-.project-img { flex: 2; display: flex; justify-content: center; } /* Increased flex from 1.5 to 2 */
+.project-img { flex: 2; display: flex; justify-content: center; } 
 .project-img img { 
   width: 100%; 
-  max-width: 650px; /* Increased max-width from 500px to 650px */
+  max-width: 650px; 
   height: auto; 
   display: block; 
-  padding: 8%; /* Reduced padding slightly to make actual image look bigger inside the box */
+  padding: 8%; 
   background: #efeee9; 
   box-shadow: 0 30px 60px rgba(0,0,0,0.05);
   transition: 0.8s ease; 
@@ -95,7 +100,6 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
 .form-group label { position: absolute; top: 15px; left: 0; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; pointer-events: none; transition: 0.3s; }
 .form-group input:focus ~ label, .form-group input:valid ~ label, .form-group textarea:focus ~ label, .form-group textarea:valid ~ label { top: -10px; font-size: 0.6rem; color: var(--text); }
 
-/* SEND BUTTON */
 .send-btn {
   width: 100%;
   padding: 15px;
@@ -125,6 +129,7 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
 <header id="main-nav">
   <a href="#" onclick="goHome()" style="text-decoration: none;"><strong>ANDIKA JANTONI</strong></a>
   <nav>
+    <a href="#" onclick="switchView('profile')">Profile</a>
     <a href="#" onclick="switchView('logos')">Logos</a>
     <a href="#" onclick="switchView('posters')">Posters</a>
     <a href="#" onclick="switchView('typography')">Typography</a>
@@ -137,6 +142,17 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
   <p class="hero-subtitle">Andika Jantoni</p>
   <button class="enter-btn" onclick="enterSite()">Enter Site</button>
 </section>
+
+<main id="profile" class="view-section">
+  <div class="category-header"><span>About</span><h1>Designer</h1></div>
+  <div class="profile-container">
+    <div class="profile-bio">
+      <h2>Andika Jantoni</h2>
+      <p>I am a striving architecture student who has a huge interest and creativity in design. My background in architecture allows me to view graphic design through a lens of structure, space, and form.</p>
+      <p>By blending architectural principles with visual storytelling, I aim to create designs that are not only aesthetically pleasing but also structurally purposeful.</p>
+    </div>
+  </div>
+</main>
 
 <main id="logos" class="view-section">
   <div class="category-header"><span>Vol. 01</span><h1>Logos</h1></div>
@@ -173,7 +189,7 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
 <main id="typography" class="view-section">
   <div class="category-header"><span>Vol. 03</span><h1>Typography</h1></div>
   <section class="project-row">
-    <div class="project-text"><h2>Take it Slow Feel the Flow</h2><p>A typographic exploration inspired by jazz culture, focusing on loose letter structures, relaxed rhythm, and organic forms that echo the chill personality of SLOTHIN.</p></div>
+    <div class="project-text"><h2>Because Jazz Isn’t Rushed</h2><p>A typographic exploration inspired by jazz culture, focusing on loose letter structures, relaxed rhythm, and organic forms that echo the chill personality of SLOTHIN.</p></div>
     <div class="project-img"><img src="images/type1.png"></div>
   </section>
   <section class="project-row">
@@ -202,7 +218,7 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
   function enterSite() {
     document.getElementById('landing-page').classList.add('hidden');
     document.getElementById('main-nav').classList.add('visible');
-    switchView('logos');
+    switchView('profile'); 
   }
 
   function goHome() {
@@ -239,5 +255,4 @@ nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 0.75re
 </script>
 </body>
 </html>
-
 
